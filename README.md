@@ -21,4 +21,4 @@ Example: Online shop is a project, apps are Producrs, Cart, Admin Area
 
 https://github.com/academind/django-practical-guide-course-code/tree/setup-zz-extra-files
 
-## URLs & Views
+There is a django extension for VS code that can highlight django template language
