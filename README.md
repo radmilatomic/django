@@ -33,6 +33,20 @@ To create new django app, we run command
 python3 manage.py startapp app_name
 ```
 
+We have to make django be aware of newly created app by adding it to INSTALLED_APPS in global setting.py file
+
+```python
+INSTALLED_APPS = [
+    'blog',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
 ### URL&Views
 
 We have to addd urls.py file in each app folder.
@@ -79,6 +93,71 @@ urlpatterns = [
 
 ### Templates
 
-There is a django extension for VS code that can highlight django template language.
+There is a django extension for VS code that can highlight django template language.<br>
+we are adding templates folder in each app. In there it is best practise to repeat app folder name.<br>
+We can also add a global templates folder for base templates - templates we want to use everywhere in the app, which the other templates will inherit.
+
+We use block option in django template language to leave a place where any template can plug in into base template by leaving dedicated place for it
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    {% block css_files %} {% endblock %}
+</head>
+<body>
+    {% block content %} {% endblock %}
+</body>
+</html>
+```
+
+We inherit the base html by adding extends tag. 
+
+```html
+{% extends  "base.html" %}
+
+{% block title%}
+    My blog
+{% endblock %}
+
+{% block content%}
+    <h1>Welcome to my blog</h1>
+{% endblock %}
+```
+
+
+If we are inheriting from global templates folder we have to tell django to evaluate this global templates folder.
+
+In settings.py file we add, which construct django to consider this ase templates folder when it is looking form templates
+
+```python
+TEMPLATES=[
+    {
+        'DIRS':[
+            BASE_DIR / "templates"
+        ]
+    }
+]
+```
+
+Without this, this extends statement in html template would fail
+
+(templates foders in app files are consider because django is aware of the all added apps, when we added them to INSTALLED_APPS list)
+
+And finally this is how we instruct django to render a template for a certain view
+
+```python
+def starting_page(request):
+    return render(request, "blog/index.html")
+```
+
+Behind this render function django actually returns an HttpResponse object.
+
+
+
 
 
