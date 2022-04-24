@@ -51,7 +51,7 @@ Functions that are triggered when this url is reached are called view functions 
 In view functions request parametar is passed automatically by django, but we have to put it in function definition
 ```python
 def starting_page(request):
-pass
+    pass
 ```
 
 Naming each path in url file is common practice, because we are going to nned does urls later in the code and it is better if we can reference them through their  name, so that the paths itself can change in the future in only one place
