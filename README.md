@@ -179,6 +179,17 @@ STATICFILES_DIRS=[
 ]
 ```
 
+If we want use html snippet in another html template, we use includes tag
+```html
+ {% include "blog/includes/post.html" %}
+```
+
+We can include links to other urls with url tag in django template language
+```html
+<h1><a href="{% url "starting-page"%}"> Rada's Blog</a></h1>
+```
+Name of the url, in this case "starting-page", is defined in urls.py
+
 
 
 
