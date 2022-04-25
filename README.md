@@ -157,6 +157,28 @@ def starting_page(request):
 
 Behind this render function django actually returns an HttpResponse object.
 
+#### Static files
+
+Files that don't change dynamically - like css files.
+
+If we want to iclude them in our html we have to add a special dtla tag at the beginnig of html document. Tat enables static files in the template. Or better to say that enables the static files that is enabling us to generate the links to static files.
+```python
+{% load static %}
+```
+Then later we can use that static tag where we need a url to static file.
+
+```html
+<link rel="stylesheet" href="{% static "app.css"%}">
+```
+
+This global static folder isn't picked up by default by django. We have to go to setting.py and add following
+
+```python
+STATICFILES_DIRS=[
+    BASE_DIR / "static"
+]
+```
+
 
 
 
