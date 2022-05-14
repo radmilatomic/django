@@ -194,6 +194,25 @@ Name of the url, in this case "starting-page", is defined in urls.py
 
 If create a 404 template in base directory templates file, django will automatically call it if page is not found. We don't have to explicitley handle it in views
 
+## Models
+```python
+Book.objects.get(id=1)
+```
+This is returning only one entry and throws an error if multiple entries found
+
+```python
+Book.objects.filter(is_bestselling=False)
+```
+This returns all the entries.
+
+You don't always need to use equality
+
+```python
+Book.objects.filter(rating__lt=3)
+```
+
+
+
 
 
 
