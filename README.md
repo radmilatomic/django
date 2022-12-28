@@ -1,6 +1,6 @@
 # django
 
-Django is a python web development framework, which means Django is a framework that allows zou to build the websites using th pzthon programming language and also html and css. Django i built for modern pzthon, using 3.x and onward versions and also Django folloes so called "batteries included" approach which is also what makes it a framework. This means that Django is a module that you install on your system which  exposes many features you can use in your python code so you don't have to invent those features on your own. Django comes with many features, like handling incoming requests, parsing requests, working with form data, storing data in the database, authenticating user...<br>
+Django is a python web development framework, which means Django is a framework that allows you to build the websites using th python programming language and also html and css. Django is built for modern python, using 3.x and onward versions and also Django followes so called "batteries included" approach which is also what makes it a framework. This means that Django is a module that you install on your system which  exposes many functions and features you can use in your python code so you don't have to invent those features on your own. Django comes with many features, like handling incoming requests, parsing requests, working with form data, storing data in the database, authenticating user...<br>
 Django is  also customisable and extensible, many aspects of django can be configured. Djanso is a production ready framework and it is being used for production websites out there.
 
 ```python
@@ -70,6 +70,8 @@ INSTALLED_APPS = [
 ```
 
 ### URL&Views
+
+With views you can define what should happen when a certain url is entered in the browser. View in its simplest form is just a python function.
 
 We have to addd urls.py file in each app folder.
 
