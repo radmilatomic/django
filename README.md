@@ -221,7 +221,7 @@ We can include links to other urls with url tag in django template language
 ```
 Name of the url, in this case "starting-page", is defined in urls.py
 
-### 404 pages
+## 404 pages
 
 If create a 404 template in base directory templates file, django will automatically call it if page is not found. We don't have to explicitley handle it in views
 
